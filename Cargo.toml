@@ -1,6 +1,6 @@
 [workspace]
 members = [
-    "cot",
+    "cot-tak",
     "example",
 ]
 resolver = "2"
