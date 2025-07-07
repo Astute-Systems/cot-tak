@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "cot",
+    "example",
+]
+resolver = "2"

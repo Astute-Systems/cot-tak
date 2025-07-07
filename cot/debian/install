@@ -1,0 +1,2 @@
+target/release/cot /usr/local/bin/
+cot/config.toml /etc/cot/

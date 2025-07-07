@@ -1,0 +1,66 @@
+name: "Ubuntu 22.04 Intel"
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  build-ubuntu:
+    runs-on: ubuntu-22.04
+
+    # Map a step output to a job output
+    outputs:
+      package_name: ${{ steps.package.outputs.DEB_PACKAGE }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Apt Update
+        run: |
+          sudo apt-get update
+
+      - name: Rust Setup
+        run: |
+          sudo ./scripts/init-build-machine.sh
+
+      - name: Build
+        run: |
+          source ~/.cargo/env
+          cargo --version
+          cargo build --release
+
+      - name: Test
+        run: |
+          # cargo test --release
+
+      - name: Package
+        run: |
+          RELEASE_MAJOR=$(sed -n '1p' version | tr -d '\n')
+          RELEASE_MINOR=$(sed -n '2p' version | tr -d '\n')
+          RELEASE_PATCH=$(sed -n '3p' version | tr -d '\n')
+          RELEASE_VERSION="${RELEASE_MAJOR}.${RELEASE_MINOR}.${RELEASE_PATCH}"
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./cot/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./example/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./gtfs_realtime_gateway/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./nmea_gateway/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./sensor_gateway/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./spx/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./spx_gateway/Cargo.toml
+          cargo build --release
+          # cargo deb -p gtfs_realtime_gateway
+          # echo "DEB_PACKAGE=$(ls *.deb)" >> $GITHUB_ENV
+          # echo "DEB_PACKAGE_NAME=$(ls *.deb).${RELEASE_VERSION}" >> $GITHUB_ENV
+
+      - name: Run the .deb package
+        run: |
+          echo "Test the Package here"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.DEB_PACKAGE_NAME }}
+          path: target/debian/${{ env.DEB_PACKAGE }}
+

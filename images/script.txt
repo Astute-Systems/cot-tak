@@ -1,0 +1,16 @@
+Welcome to the next video in a series of tutorials we are doing on Tactical Awareness Kit or TAK. In this video we are going to introduce you to our TAK software development kit written in the Rust programming language.
+
+Rust has emerged as a popular alternative to C plus plus and interpreted languages due to its unique features and benefits. Rust offers memory safety guarantees through its strict ownership model, which helps eliminate common bugs like null pointer de referencing and buffer overflows. Unlike C++, Rust enforces these safety checks at compile-time without sacrificing performance, making it ideal for systems programming.
+
+You can find more about our S D K over on our website at astutesys / dot com forward slash tak.
+
+Lets take a look at how a typicall TAK system would distribute data over the network. Here in this diagram we can see all the possible data sources for tak data. Transponser data sources include A I S, A D B S and open drone i dee. We can also take in data from sensors including RADAR and LIDAR or opt for open source intelligence available online.
+
+This data can be sent over mesh network/s locally to other users or fed into a tak server where other users and groups can access the data. This is using traditional T C P / I P client server architecture and has a single point of failure and does not scale well. At the top of the diagram we are proposing a more robust publisher subscriber architecture using Zeno to distribute data via a router hosted in the cloud. Using this method, data can be made available anywhere there is an internet connection and redundancy can be built into the system. Check out more about Zeno over on their website.
+
+Now lets take a quick look at the documentation created with rustdoc. At the bottom of the tak page on our website you can find a link to Github pages where our documentation is regurlaly updated. Follow the link and you will be taken to the docs.
+
+Here we can see the Cursor on Target library used to communicate with TAK clients. Included with the library are some example gateway services N M E A and Cambridge Pixels RADAR feeds as sources of COT messages data that can be displayed in TAK. We are adding more examples here all the time so be sure to come back and visit or reach out if you have a specific requirement. 
+
+
+

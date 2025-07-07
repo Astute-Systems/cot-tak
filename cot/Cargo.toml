@@ -1,0 +1,65 @@
+[package]
+name = "cot"
+version = "0.1.0"
+edition = "2021"
+license-file = "LICENSE"
+description = "A built in test application for Linux using dynamic libraries in Rust"
+authors = ["Ross Newman <ross.newman@astutesys.com>"]
+homepage = "https://www.astutesys.com"
+
+[dependencies]
+uuid = { version = "1.13.1", features = ["v4"] }
+ctrlc = "3.2"
+chrono = "0.4"
+native-tls = "0.2"
+toml = "0.8.20"
+serde = { version = "1.0", features = ["derive"] }
+hex = "0.4.3"
+protobuf = "3"
+clap = "3.0"
+hostname = "0.4"
+whoami = "1.1"
+socket2 = "0.5.8"
+serialport = "4.7.0"
+strum = "0.27.0"
+strum_macros = "0.27.0"
+zip = "2.2.2"
+mime_guess = "2.0"
+xml-rs = "0.8"
+blake3 = "1.0"
+sha2 = "0.10.0"
+hyper = "1.6.0"
+tokio = { version = "1", features = ["full"] }
+once_cell = "1.4.0"
+
+[build-dependencies]
+prost-build = "0.13.4"
+protobuf-codegen = "3"
+protoc-rust = "^2.0"
+cbindgen = "0.28.0"
+
+# [lib]
+# name = "cot"
+# crate-type = ["cdylib"]
+
+
+[package.metadata.deb]
+maintainer = "Ross Newman <ross.newman@astutesys.com>"
+copyright = "2025 Astute Systems PTY LTD"
+license-file = ["LICENSE", "4"]
+extended-description = """\
+A simple subcommand for the Cargo package manager for \
+building Debian packages from Rust projects."""
+depends = "$auto"
+section = "utility"
+priority = "optional"
+assets = [
+    # both syntaxes are equivalent:
+    [
+        "target/release/cot.so",
+        "usr/lib/",
+        "755",
+    ],
+    { source = "README.md", dest = "usr/share/doc/gtfs_realtime_gateway/README", mode = "644" },
+    { source = "cot/config.toml", dest = "etc/cot/cot/config.toml", mode = "644" },
+]

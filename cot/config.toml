@@ -1,0 +1,24 @@
+[general]
+uuid = "d0775617-6907-4538-be0e-12de8755f86f"
+stale = 120
+filestore = "/tmp"
+http_server = true
+http_address = "localhost"
+http_port = 8080
+callsign = "Red Five"
+
+[chat]
+address = "224.10.10.1"
+port = 17012
+
+[udp]
+address = "239.2.3.1"
+port = 6969
+
+[tcp]
+address = "127.0.0.1"
+port = 7979
+
+[ssl]
+address = "127.0.0.1"
+port = 443

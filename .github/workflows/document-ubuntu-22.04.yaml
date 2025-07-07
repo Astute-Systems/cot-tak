@@ -1,0 +1,68 @@
+name: "Rustdoc"
+
+on:
+  push:
+    branches: main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  # Map a step output to a job output
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Apt Update
+        run: |
+          sudo apt-get update
+
+      - name: Rust Setup
+        run: |
+          sudo ./scripts/init-build-machine.sh
+
+      - name: Cargo check
+        run: |
+          source ~/.cargo/env
+          cargo --version
+
+      - name: Package
+        run: |
+          RELEASE_MAJOR=$(sed -n '1p' version | tr -d '\n')
+          RELEASE_MINOR=$(sed -n '2p' version | tr -d '\n')
+          RELEASE_PATCH=$(sed -n '3p' version | tr -d '\n')
+          RELEASE_VERSION="${RELEASE_MAJOR}.${RELEASE_MINOR}.${RELEASE_PATCH}"
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./cot/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./example/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./gtfs_realtime_gateway/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./nmea_gateway/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./sensor_gateway/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./spx/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./spx_gateway/Cargo.toml
+          cargo doc --no-deps
+          wget https://img.shields.io/badge/version-${RELEASE_VERSION}-blue.svg -O target/doc/version.svg
+          cp -rf ./images target/doc/images
+
+      # Upload ./target/doc/cot/* to Github Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload the docs
+          name: "github-pages"
+          path: "target/doc"
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
