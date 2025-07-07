@@ -6,10 +6,10 @@
 // See the commercial LICENSE file in the project root for full license details.
 //
 
-use cot::config::Config;
-use cot::cot_base::{CursorOnTarget, Point};
-use cot::cot_bullseye::Bullseye;
-use cot::proto_sender::ProtoSender;
+use cottak::config::Config;
+use cottak::cot_base::{CursorOnTarget, Point};
+use cottak::cot_bullseye::Bullseye;
+use cottak::proto_sender::ProtoSender;
 
 // Brisbane Botanical Gardens
 const LONGITUDE: f64 = 153.0290348;

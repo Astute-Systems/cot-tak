@@ -1,5 +1,5 @@
 [package]
-name = "cot-tak"
+name = "cottak"
 version = "0.1.0"
 edition = "2021"
 license-file = "LICENSE"
@@ -39,7 +39,7 @@ protoc-rust = "^2.0"
 cbindgen = "0.28.0"
 
 # [lib]
-# name = "cot-tak"
+# name = "cottak"
 # crate-type = ["cdylib"]
 
 [package.metadata.deb]

@@ -20,9 +20,9 @@ mod data_package;
 mod measure;
 mod sensor;
 
-use cot::config::Config;
+use cottak::config::Config;
 
-use cot::http_file_server::FileServer;
+use cottak::http_file_server::FileServer;
 
 fn send_cot_items(animate: bool, send_data_package: bool) {
     // Create some CoT messages
@@ -43,7 +43,10 @@ fn main() {
         config.udp.address, config.udp.port
     );
     // Print CoT library version
-    println!("  CoT Library Version: {}\n", cot::host::get_cot_version());
+    println!(
+        "  CoT Library Version: {}\n",
+        cottak::host::get_cot_version()
+    );
 
     // Create some CoT messages
     send_cot_items(true, true);

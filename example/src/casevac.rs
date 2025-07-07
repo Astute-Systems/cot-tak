@@ -6,11 +6,11 @@
 // See the commercial LICENSE file in the project root for full license details.
 //
 
-use cot::config::Config;
-use cot::cot_base::{CursorOnTarget, Point};
-use cot::cot_casevac::Casevac;
-use cot::proto_sender::ProtoSender;
-use cot::time::Time;
+use cottak::config::Config;
+use cottak::cot_base::{CursorOnTarget, Point};
+use cottak::cot_casevac::Casevac;
+use cottak::proto_sender::ProtoSender;
+use cottak::time::Time;
 
 // Casevac
 const LONGITUDE: f64 = 153.0268557;

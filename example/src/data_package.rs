@@ -6,11 +6,11 @@
 // See the commercial LICENSE file in the project root for full license details.
 //
 
-use cot::config::Config;
-use cot::cot::{Cot, FileShare};
-use cot::cot_base::{CursorOnTarget, Point};
-use cot::cot_types::{CoTType, CotClassification};
-use cot::proto_sender::ProtoSender;
+use cottak::config::Config;
+use cottak::cot::{Cot, FileShare};
+use cottak::cot_base::{CursorOnTarget, Point};
+use cottak::cot_types::{CoTType, CotClassification};
+use cottak::proto_sender::ProtoSender;
 
 // Victoria Bridge
 const BRIDGE_LONGITUDE: f64 = 153.0212346463404;
@@ -40,7 +40,7 @@ pub fn fileshare(send_data_package: bool) {
     }
 
     // Setup classification of the CoT message
-    let cot_type = cot::cot_types::lookup_cot_type(
+    let cot_type = cottak::cot_types::lookup_cot_type(
         CoTType::GndStructureCivilianBridge,
         CotClassification::Neutral,
     );

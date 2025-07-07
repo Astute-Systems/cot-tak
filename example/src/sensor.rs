@@ -6,10 +6,10 @@
 // See the commercial LICENSE file in the project root for full license details.
 //
 
-use cot::config::Config;
-use cot::cot_base::{CursorOnTarget, Point,Sendable};
-use cot::cot_sensor::Sensor;
-use cot::proto_sender::ProtoSender;
+use cottak::config::Config;
+use cottak::cot_base::{CursorOnTarget, Point, Sendable};
+use cottak::cot_sensor::Sensor;
+use cottak::proto_sender::ProtoSender;
 
 // Queens Street Mall
 const CAMERA_LONGITUDE: f64 = 153.02443692573377;
@@ -67,14 +67,14 @@ pub fn camera(animate: bool) {
 
     if animate {
         // Sensor is going to rotate bearing 360 degrees
-        let mut azimuth =0;
+        let mut azimuth = 0;
         let mut fov = 0.0;
         let mut range = 0.0;
 
         for _ in 0..360 {
-            azimuth+= 1;
+            azimuth += 1;
             if azimuth >= 360 {
-               azimuth = 0;
+                azimuth = 0;
             }
             camera.modify_field("azimuth", azimuth.to_string().as_str());
             sender.send(&camera);

@@ -6,11 +6,11 @@
 // See the commercial LICENSE file in the project root for full license details.
 //
 
-use cot::config::Config;
-use cot::cot::Cot;
-use cot::cot_base::{CursorOnTarget, Point};
-use cot::cot_types::{CoTType, CotClassification};
-use cot::proto_sender::ProtoSender;
+use cottak::config::Config;
+use cottak::cot::Cot;
+use cottak::cot_base::{CursorOnTarget, Point};
+use cottak::cot_types::{CoTType, CotClassification};
+use cottak::proto_sender::ProtoSender;
 
 // Brisbane City Hall
 const LONGITUDE: f64 = 153.02351661489064;
@@ -21,7 +21,8 @@ pub fn building() {
     let config = Config::new();
 
     // Setup classification of the CoT message
-    let cot_type = cot::cot_types::lookup_cot_type(CoTType::GndBuilding, CotClassification::Friend);
+    let cot_type =
+        cottak::cot_types::lookup_cot_type(CoTType::GndBuilding, CotClassification::Friend);
 
     // Brisbane City Hall
     let building = Cot::new(

@@ -6,9 +6,9 @@
 // See the commercial LICENSE file in the project root for full license details.
 //
 
-use cot::chat;
-use cot::config::Config;
-use cot::proto_sender::ProtoSender;
+use cottak::chat;
+use cottak::config::Config;
+use cottak::proto_sender::ProtoSender;
 
 pub fn chat() {
     let config = Config::new();
