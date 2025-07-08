@@ -8,37 +8,92 @@ This project sends Cursor on Target (CoT) messages to a specified UDP port.
 - `uuid` crate: Add `uuid = "1.0"` to your `Cargo.toml`
 - `ctrlc` crate: Add `ctrlc = "3.2"` to your `Cargo.toml`
 
-## Building
+## Config file
 
-1. Clone the repository:
+The config file default location is ```/etc/cot/cot/config.toml```
 
-    ```sh
-    git clone https://github.com/Astute-Systems/cot-tak
-    cd CotX/cot
-    ```
+```.toml
+[general]
+uuid = "d0775617-6907-4538-be0e-12de8755f86f"
+stale = 120
+filestore = "/tmp"
+http_server = true
+http_address = "localhost"
+http_port = 8080
+callsign = "Red Five"
 
-2. Build the project:
+[chat]
+address = "224.10.10.1"
+port = 17012
 
-    ```sh
-    cargo build --release
-    ```
+[udp]
+address = "239.2.3.1"
+port = 6969
 
-## Running
+[tcp]
+address = "192.168.1.100"
+port = 7979
 
-1. Set the `COT_CALLSIGN` environment variable (optional):
+[ssl]
+address = "192.168.1.101"
+port = 443
 
-    ```sh
-    export COT_CALLSIGN="YourCallsign"
-    ```
+```
 
-2. Run the application:
+## Publish CoT message (UDP)
 
-    ```sh
-    cargo run --release
-    ```
+``` .rust
+use cottak::config::Config;
+use cottak::cot::Cot;
+use cottak::cot_base::{CursorOnTarget, Point};
+use cottak::cot_types::{CoTType, CotClassification};
+use cottak::proto_sender::ProtoSender;
 
-The application will send CoT messages to `239.2.3.1:6969` every second until interrupted with `Ctrl+C`.
+// Brisbane City Hall
+const LONGITUDE: f64 = 153.02351661489064;
+const LATITUDE: f64 = -27.46891737509902;
 
-## License
+fn main() {
+    // Read the defaults from the configuration
+    let config = Config::new();
 
-This project is licensed under the MIT License.
+    // Setup classification of the CoT message
+    let cot_type =
+        cottak::cot_types::lookup_cot_type(CoTType::GndBuilding, CotClassification::Friend);
+
+    // Brisbane City Hall
+    let building = Cot::new(
+        CursorOnTarget::new(
+            "CITY_#89436".to_string(),
+            None,
+            Some(cot_type.to_string()),
+            "h-e".to_string(),
+            Some("UNCLASSIFIED".to_string()),
+            Point {
+                latitude: LATITUDE,
+                longitude: LONGITUDE,
+                hae: CursorOnTarget::HAE_NONE,
+                ce: CursorOnTarget::CE_NONE,
+                le: CursorOnTarget::LE_NONE,
+            },
+        ),
+        None,
+        "Brisbane City Hall".to_string(),
+        false,
+        None,
+        None,
+        Some(0.0),
+        None,
+        None,
+        None,
+        None,
+        None,
+        None,
+    );
+
+    let mut sender = ProtoSender::new(&config.udp.address as &str, config.udp.port)
+        .expect("Couldn't setup multicast");
+
+    sender.send(&building);
+}
+```

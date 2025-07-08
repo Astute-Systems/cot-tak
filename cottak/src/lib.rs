@@ -128,7 +128,6 @@ pub mod host;
 pub mod http_file_server;
 pub mod nmea;
 pub mod proto_sender;
-pub mod serial_port;
 pub mod ssl_sender;
 pub mod tcp_sender;
 mod tests;
