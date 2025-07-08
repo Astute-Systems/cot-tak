@@ -10,6 +10,8 @@ A selection of utilities for CoT and TAK integration
 
 Documentation is available to view on [Github Pages](https://astute-systems.github.io/CotX/cot)
 
+Use the library from [crates.io](https://crates.io/crates/cottak)
+
 ## Setup and Build
 
 Setup the build environment by running ```./scripts/init_build_machine.sh```.
