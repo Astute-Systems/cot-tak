@@ -1,8 +1,8 @@
 # Cursor On Target (TAK)
 
-[![Ubuntu 22.04 Intel](https://github.com/Astute-Systems/CotX/actions/workflows/build-ubuntu-22.04-amd64.yaml/badge.svg)](https://github.com/Astute-Systems/CotX/actions/workflows/build-ubuntu-22.04-amd64.yaml)
-[![Ubuntu 24.04 Intel](https://github.com/Astute-Systems/CotX/actions/workflows/build-ubuntu-24.04-amd64.yaml/badge.svg)](https://github.com/Astute-Systems/CotX/actions/workflows/build-ubuntu-24.04-amd64.yaml)
-[![Rustdoc](https://github.com/Astute-Systems/CotX/actions/workflows/document-ubuntu-22.04.yaml/badge.svg)](https://github.com/Astute-Systems/CotX/actions/workflows/document-ubuntu-22.04.yaml)
+[![Ubuntu 24.04 Intel](https://github.com/Astute-Systems/cot-tak/actions/workflows/build-ubuntu-24.04-amd64.yaml/badge.svg)](https://github.com/Astute-Systems/cot-tak/actions/workflows/build-ubuntu-24.04-amd64.yaml)
+[![Ubuntu 22.04 Intel](https://github.com/Astute-Systems/cot-tak/actions/workflows/build-ubuntu-22.04-amd64.yaml/badge.svg)](https://github.com/Astute-Systems/cot-tak/actions/workflows/build-ubuntu-22.04-amd64.yaml)
+[![Rustdoc](https://github.com/Astute-Systems/cot-tak/actions/workflows/document-ubuntu-22.04.yaml/badge.svg)](https://github.com/Astute-Systems/cot-tak/actions/workflows/document-ubuntu-22.04.yaml)
 
 A selection of utilities for CoT and TAK integration
 
