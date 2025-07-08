@@ -5,7 +5,7 @@ edition = "2021"
 license-file = "LICENSE"
 description = "A built in test application for Linux using dynamic libraries in Rust"
 authors = ["Ross Newman <ross.newman@astutesys.com>"]
-homepage = "https://www.astutesys.com"
+homepage = "https://astutesys.com/tak/"
 
 [dependencies]
 uuid = { version = "1.13.1", features = ["v4"] }
@@ -15,15 +15,15 @@ native-tls = "0.2"
 toml = "0.8.20"
 serde = { version = "1.0", features = ["derive"] }
 hex = "0.4.3"
-protobuf = "3"
+protobuf = "3.7.2"
 clap = "3.0"
 hostname = "0.4"
 whoami = "1.1"
-socket2 = "0.5.8"
+socket2 = "0.6.0"
 serialport = "4.7.0"
 strum = "0.27.0"
 strum_macros = "0.27.0"
-zip = "2.2.2"
+zip = "4.2.0"
 mime_guess = "2.0"
 xml-rs = "0.8"
 blake3 = "1.0"
@@ -33,10 +33,9 @@ tokio = { version = "1", features = ["full"] }
 once_cell = "1.4.0"
 
 [build-dependencies]
-prost-build = "0.13.4"
-protobuf-codegen = "3"
-protoc-rust = "^2.0"
-cbindgen = "0.28.0"
+prost-build = "0.14.1"
+protobuf-codegen = "3.7.2"
+cbindgen = "0.29.0"
 
 # [lib]
 # name = "cottak"

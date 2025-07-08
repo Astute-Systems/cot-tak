@@ -45,7 +45,5 @@ fn main() {
         .input("src/proto/takv.proto")
         .input("src/proto/track.proto")
         .input("src/proto/detail.proto")
-        .input("src/proto/gtfs-realtime.proto")
-        // .input("src/proto/gtfs-realtime_1007_extension.proto")
         .run_from_script();
 }

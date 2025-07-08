@@ -11,12 +11,14 @@ This project sends Cursor on Target (CoT) messages to a specified UDP port.
 ## Building
 
 1. Clone the repository:
+
     ```sh
-    git clone https://github.com/yourusername/CotX.git
+    git clone https://github.com/Astute-Systems/cot-tak
     cd CotX/cot
     ```
 
 2. Build the project:
+
     ```sh
     cargo build --release
     ```
@@ -24,11 +26,13 @@ This project sends Cursor on Target (CoT) messages to a specified UDP port.
 ## Running
 
 1. Set the `COT_CALLSIGN` environment variable (optional):
+
     ```sh
     export COT_CALLSIGN="YourCallsign"
     ```
 
 2. Run the application:
+
     ```sh
     cargo run --release
     ```

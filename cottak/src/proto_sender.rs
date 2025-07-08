@@ -65,7 +65,7 @@ impl ProtoSender {
 
     /// Send a CursorOnTarget message for an aircraft
     pub fn send(&mut self, cursor_on_target: &impl Sendable) {
-        let cot:CursorOnTarget = cursor_on_target.get_cot();
+        let cot: CursorOnTarget = cursor_on_target.get_cot();
         // Populate CotEvent
         let mut cot_event = CotEvent::new();
         cot_event.type_ = cot.type_string.as_ref().unwrap().to_string();

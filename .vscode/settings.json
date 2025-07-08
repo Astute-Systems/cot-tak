@@ -2,8 +2,13 @@
   "cSpell.words": [
     "callsign",
     "casevac",
+    "codegen",
+    "cotevent",
     "cottak",
     "GPRMC",
-    "nmea"
+    "nmea",
+    "precisionlocation",
+    "protos",
+    "takv"
   ]
 }
