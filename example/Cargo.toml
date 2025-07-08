@@ -8,11 +8,11 @@ authors = ["Ross Newman <ross.newman@astutesys.com>"]
 homepage = "https://www.astutesys.com"
 
 [dependencies]
-reqwest = { version = "0.11", features = ["blocking", "json"] }
+reqwest = { version = "0.12", features = ["blocking", "json"] }
 cottak = { path = "../cottak" }
 protobuf = "3"
-clap = "3.0"
-ctrlc = "1.0"
+clap = "4.5.40"
+ctrlc = "3.4.7"
 embed-doc-image = "0.1.4"
 nmea = "0.7.0"
 
