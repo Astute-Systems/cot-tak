@@ -8,13 +8,13 @@
 //
 // See the commercial LICENSE file in the project root for full license details.
 //
-//! ![TAK Logo](https://astute-systems.github.io/cottak/images/astute_tak_logo.png)
+//! ![TAK Logo](https://astute-systems.github.io/cot-tak/images/astute_tak_logo.png)
 //!
 //! # CoT Library
 //!
 //! CoT is a library for sending Cursor on Target (CoT) messages over various transport protocols.
 //!
-//! ![TAK Brisbane](https://astute-systems.github.io/cottak/images/tak_brisbane.png)
+//! ![TAK Brisbane](https://astute-systems.github.io/cot-tak/images/tak_brisbane.png)
 //! **Example TAK displaying GTFS Realtime data for Brisbane**
 //!
 //! ## Cursor on Target (CoT) Messages

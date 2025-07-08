@@ -37,7 +37,19 @@ jobs:
 
       - name: Package
         run: |
+          RELEASE_MAJOR=$(sed -n '1p' version | tr -d '\n')
+          RELEASE_MINOR=$(sed -n '2p' version | tr -d '\n')
+          RELEASE_PATCH=$(sed -n '3p' version | tr -d '\n')
+          RELEASE_VERSION="${RELEASE_MAJOR}.${RELEASE_MINOR}.${RELEASE_PATCH}"
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./cot/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./example/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./gtfs_realtime_gateway/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./nmea_gateway/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./sensor_gateway/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./spx/Cargo.toml
+          sed -i "s/^version = .*/version = \"$RELEASE_VERSION\"/" ./spx_gateway/Cargo.toml
           cargo doc --no-deps
+          wget https://img.shields.io/badge/version-${RELEASE_VERSION}-blue.svg -O target/doc/version.svg
           cp -rf ./images target/doc/images
 
       # Upload ./target/doc/cot/* to Github Pages

@@ -8,7 +8,7 @@ A selection of utilities for CoT and TAK integration
 
 ## Documentation
 
-Documentation is available to view on [Github Pages](https://astute-systems.github.io/CotX/cot)
+Documentation is available to view on [Github Pages](https://astute-systems.github.io/cot-tak/cottak)
 
 Use the library from [crates.io](https://crates.io/crates/cottak)
 
