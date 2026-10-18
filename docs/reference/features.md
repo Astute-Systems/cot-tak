@@ -30,7 +30,7 @@ pulls in only what it needs.
 
 ```toml
 [dependencies]
-cottak = { git = "https://github.com/Astute-Systems/cot-tak", tag = "v2.0.0-rc2", default-features = false, features = ["convert", "kmz"] }
+cottak = { version = "2.0.0-rc2", default-features = false, features = ["convert", "kmz"] }
 ```
 
 !!! note

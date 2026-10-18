@@ -42,8 +42,7 @@ cargo doc --workspace --no-deps --all-features --open
 ```
 
 This builds exactly what is published (CI uses `RUSTDOCFLAGS="-D warnings"`, so broken links in
-the API docs fail the build). Once 2.0.0 is published on [crates.io](https://crates.io/crates/cottak), the same documentation will also
-be available on docs.rs.
+the API docs fail the build). The published crates also have their documentation on [docs.rs](https://docs.rs/cottak).
 
 ## Why rustdoc and not Doxygen?
 
