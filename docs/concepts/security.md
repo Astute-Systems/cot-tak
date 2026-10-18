@@ -79,10 +79,10 @@ archives only (not your own build of the library).
 3. Verify, naming the source repository and the release tag:
 
 ```sh
-slsa-verifier verify-artifact cottak-core-2.0.0-rc1.crate \
+slsa-verifier verify-artifact cottak-core-2.0.0-rc2.crate \
   --provenance-path multiple.intoto.jsonl \
   --source-uri github.com/Astute-Systems/cot-tak \
-  --source-tag v2.0.0-rc1
+  --source-tag v2.0.0-rc2
 ```
 
 A successful run prints `PASSED: SLSA verification passed`. If the archive, the tag or the

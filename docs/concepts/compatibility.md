@@ -64,7 +64,7 @@ All limits that make sense to tune are configurable; see each guide page.
 
 ## Versioning
 
-The workspace is at **2.0.0-rc1**, a release candidate. The API may still change before 2.0.0
+The workspace is at **2.0.0-rc2**, a release candidate. The API may still change before 2.0.0
 final if feedback or live-system testing demands it; from 2.0.0 on, [semantic
 versioning](https://semver.org) applies. Error and event enums are `#[non_exhaustive]`, so adding
 variants is not a breaking change. The 0.1 API was replaced entirely and has no compatibility

@@ -13,7 +13,7 @@ members = [
 exclude = ["fuzz"]
 
 [workspace.package]
-version = "2.0.0-rc1"
+version = "2.0.0-rc2"
 edition = "2021"
 rust-version = "1.88"
 license = "MIT OR Apache-2.0"
@@ -24,13 +24,13 @@ keywords = ["tak", "cot", "cursor-on-target", "atak", "geospatial"]
 categories = ["network-programming", "parser-implementations", "encoding"]
 
 [workspace.dependencies]
-cottak-core = { path = "crates/cottak-core", version = "2.0.0-rc1" }
-cottak-proto = { path = "crates/cottak-proto", version = "2.0.0-rc1" }
-cottak-net = { path = "crates/cottak-net", version = "2.0.0-rc1" }
-cottak-enroll = { path = "crates/cottak-enroll", version = "2.0.0-rc1" }
-cottak-marti = { path = "crates/cottak-marti", version = "2.0.0-rc1" }
-cottak-convert = { path = "crates/cottak-convert", version = "2.0.0-rc1" }
-cottak-server = { path = "crates/cottak-server", version = "2.0.0-rc1" }
+cottak-core = { path = "crates/cottak-core", version = "2.0.0-rc2" }
+cottak-proto = { path = "crates/cottak-proto", version = "2.0.0-rc2" }
+cottak-net = { path = "crates/cottak-net", version = "2.0.0-rc2" }
+cottak-enroll = { path = "crates/cottak-enroll", version = "2.0.0-rc2" }
+cottak-marti = { path = "crates/cottak-marti", version = "2.0.0-rc2" }
+cottak-convert = { path = "crates/cottak-convert", version = "2.0.0-rc2" }
+cottak-server = { path = "crates/cottak-server", version = "2.0.0-rc2" }
 
 quick-xml = "0.42"
 thiserror = "2"

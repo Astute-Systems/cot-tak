@@ -1,0 +1,67 @@
+name: Publish to crates.io
+
+# Publishes every crate in the workspace when a GitHub release is published.
+#
+# One-time setup:
+#   1. Create a crates.io API token (https://crates.io/settings/tokens) with the
+#      "publish-new" and "publish-update" scopes, restricted to the `cottak*` crates.
+#   2. Add it as the repository (or `crates-io` environment) secret CARGO_REGISTRY_TOKEN.
+#   3. Optional: add required reviewers to the `crates-io` environment so each publish needs approval.
+#
+# To retry a failed publish for an existing release, run this workflow manually with the tag.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to publish (for example v2.0.0-rc2)"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
+  TAG: ${{ github.event.release.tag_name || inputs.tag }}
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: crates-io
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ env.TAG }}
+
+      - run: rustup toolchain install stable --profile minimal && rustup default stable
+      - uses: Swatinem/rust-cache@v2
+
+      - name: The tag must match the crate version
+        run: |
+          version=$(cargo metadata --no-deps --format-version 1 \
+            | python3 -c 'import json,sys; print(next(p["version"] for p in json.load(sys.stdin)["packages"] if p["name"]=="cottak"))')
+          if [ "v$version" != "$TAG" ]; then
+            echo "::error::tag $TAG does not match the workspace version $version"
+            exit 1
+          fi
+
+      - name: Check the token is configured
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        run: |
+          if [ -z "$CARGO_REGISTRY_TOKEN" ]; then
+            echo "::error::secret CARGO_REGISTRY_TOKEN is not set; see the comment at the top of this workflow"
+            exit 1
+          fi
+
+      # Publishes in dependency order and waits for the index between crates.
+      - name: Publish
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+        run: cargo publish --workspace

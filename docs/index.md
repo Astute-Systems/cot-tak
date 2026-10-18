@@ -53,7 +53,7 @@ Continue with [Installation](getting-started/installation.md) and the
 [API reference](reference/api.md).
 
 !!! warning "Status: 2.0.0 release candidate"
-    This is `2.0.0-rc1`, a rebuilt multi-crate workspace; the 0.1 API is gone. Message builders follow the
+    This is `2.0.0-rc2`, a rebuilt multi-crate workspace; the 0.1 API is gone. Message builders follow the
     behaviour of ATAK but have not all been validated against live ATAK/WinTAK/TAK Server
     builds. See [Compatibility and limits](concepts/compatibility.md) for exactly what is and is
     not verified.

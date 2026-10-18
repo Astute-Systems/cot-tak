@@ -70,3 +70,6 @@ required-features = ["server"]
 [[example]]
 name = "geojson_to_cot"
 required-features = ["convert"]
+
+[package.metadata.docs.rs]
+all-features = true

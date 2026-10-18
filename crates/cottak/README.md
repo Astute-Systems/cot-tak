@@ -38,7 +38,7 @@
   <a href="#complete-feature-list">Features</a>
 </p>
 
-> **Status: 2.0.0 release candidate (`v2.0.0-rc1`).** The crate has been rebuilt as a multi-crate
+> **Status: 2.0.0 release candidate (`v2.0.0-rc2`).** The crate has been rebuilt as a multi-crate
 > workspace; the 0.1 API is gone. See [Compatibility and limits](https://astute-systems.github.io/cot-tak/concepts/compatibility/)
 > for exactly what has and has not been validated against live ATAK/WinTAK/TAK Server builds.
 
@@ -190,7 +190,7 @@ details of what is and is not protected.
 
 ```toml
 [dependencies]
-cottak = { git = "https://github.com/Astute-Systems/cot-tak", tag = "v2.0.0-rc1", features = ["net"] }
+cottak = { git = "https://github.com/Astute-Systems/cot-tak", tag = "v2.0.0-rc2", features = ["net"] }
 tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
 ```
 
