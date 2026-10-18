@@ -313,9 +313,11 @@ async fn reconnects_and_delivers_events_queued_while_down() {
 
 #[tokio::test]
 async fn connection_refused_is_retried_with_backoff() {
-    let (l, addr) = listener().await;
-    drop(l); // nothing listening
-    let (handle, mut events) = TakClient::start(config(&addr)).unwrap();
+    // Nothing listens on port 1 (tcpmux). Do not bind-and-drop an ephemeral port instead: tests
+    // run in parallel, and another test's listener can be given the freed port, so this client
+    // would connect to it, steal its accept(), and make *that* test time out.
+    let addr = "127.0.0.1:1";
+    let (handle, mut events) = TakClient::start(config(addr)).unwrap();
     let mut failures = 0;
     while failures < 3 {
         if let ClientEvent::Disconnected { retry_in, .. } = next(&mut events).await {
