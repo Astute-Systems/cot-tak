@@ -23,6 +23,10 @@
 
 pub use cottak_core as core;
 
+// The guide's code blocks are compiled as doctests; see the module docs.
+#[cfg(doctest)]
+mod guide_tests;
+
 #[cfg(feature = "proto")]
 pub use cottak_proto as proto;
 

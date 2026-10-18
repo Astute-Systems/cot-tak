@@ -104,7 +104,7 @@ assert!(draw::circle("c2", "x", centre, -1.0, Style::default()).is_err());
 ```
 
 Routes use `draw::route` with a list of `Waypoint`s; bullseyes, range rings and geofences are
-analogous. See the [`messages::draw` API](../../api/cottak_core/messages/draw/index.html).
+analogous. See the [`messages::draw` API](api:cottak_core/messages/draw/index.html).
 
 ## MEDEVAC and sensors
 

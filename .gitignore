@@ -1,2 +1,5 @@
 target
 Cargo.lock
+/site/
+.venv/
+__pycache__/

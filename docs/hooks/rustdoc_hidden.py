@@ -5,7 +5,9 @@ so they use rustdoc conventions that a web page should not show:
 
 * lines starting with ``# `` (or a lone ``#``) are hidden setup code, removed here;
 * ``rust,no_run`` and similar info strings are reduced to ``rust`` so the highlighter
-  recognises them.
+  recognises them;
+* links of the form ``](api:crate/path.html)`` become relative links into the rustdoc output
+  (done after rendering, so MkDocs does not try to validate them).
 
 Only fenced blocks whose language is ``rust`` are touched. Attributes such as ``#[derive]``
 and ``#![allow]`` are not hidden lines and are kept.
@@ -19,6 +21,18 @@ FENCE = re.compile(r"^(?P<indent>[ \t]*)(?P<ticks>`{3,})(?P<info>[^`\n]*)$")
 def _is_hidden(line: str) -> bool:
     stripped = line.lstrip()
     return stripped == "#" or stripped.startswith("# ")
+
+
+def on_page_content(html, page, **kwargs):
+    """Rewrite ``href="api:path"`` to a relative link into the rustdoc output at ``/api/``.
+
+    MkDocs validates relative links against its own files, and rustdoc is published next to the
+    guide rather than inside it. Links to the API reference therefore use the ``api:``
+    pseudo-scheme in Markdown (which MkDocs leaves alone) and are resolved here, after rendering.
+    The depth comes from the page URL, so this works under any site base path.
+    """
+    depth = len([part for part in page.url.split("/") if part])
+    return html.replace('href="api:', 'href="' + "../" * depth + "api/")
 
 
 def on_page_markdown(markdown, **kwargs):

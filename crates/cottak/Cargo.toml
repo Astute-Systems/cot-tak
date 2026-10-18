@@ -23,7 +23,7 @@ net = ["proto", "dep:cottak-net"]
 # Certificate enrollment (tak:// onboarding, CSR, signClient)
 enroll = ["net", "dep:cottak-enroll"]
 # Marti REST API client (missions, files, contacts, groups)
-marti = ["dep:cottak-marti"]
+marti = ["net", "dep:cottak-marti"]
 # GeoJSON / KML conversion and MIL-STD-2525 symbol codes
 convert = ["dep:cottak-convert"]
 # KMZ (zipped KML) reading and writing in the conversion crate
@@ -48,6 +48,8 @@ workspace = true
 
 [dev-dependencies]
 tokio = { workspace = true, features = ["rt-multi-thread", "macros", "signal"] }
+bytes = { workspace = true }
+tokio-util = { workspace = true }
 
 [[example]]
 name = "geochat_bot"

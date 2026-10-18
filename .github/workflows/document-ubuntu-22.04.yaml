@@ -1,54 +1,97 @@
-name: "Rustdoc"
+name: Docs
+
+# Builds the MkDocs guide and the rustdoc API reference, merges them into one site and publishes
+# it to GitHub Pages. Pull requests only build (to catch problems); pushes to main also deploy.
+#
+# One-time setup: Settings > Pages > Source: "GitHub Actions".
 
 on:
   push:
-    branches: main
-
+    branches: [main]
+  pull_request:
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "crates/**"
+      - ".github/workflows/document-ubuntu-22.04.yaml"
+      - ".github/scripts/check_site_links.py"
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
-  pages: write
-  id-token: write
+
+# Never cancel a deployment half way; queue the next one instead.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  CARGO_TERM_COLOR: always
 
 jobs:
-  # Map a step output to a job output
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: rustup toolchain install stable --profile minimal && rustup default stable
+      - uses: Swatinem/rust-cache@v2
+
+      # The API reference. Broken intra-doc links and missing docs fail the build.
+      - name: Build rustdoc
+        run: cargo doc --workspace --no-deps --all-features
+        env:
+          RUSTDOCFLAGS: "-D warnings"
+
+      # Every Rust snippet in the guide is compiled (and, unless marked no_run, executed).
+      - name: Test the guide's code
+        run: cargo test -p cottak --doc --all-features
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: docs/requirements.txt
+      - run: pip install -r docs/requirements.txt
+
+      - name: Build the guide
+        run: mkdocs build --strict
+
+      - name: Merge the API reference into the site
+        run: |
+          cp -r target/doc site/api
+          # `cargo doc` for a workspace has no index page of its own.
+          cat > site/api/index.html <<'HTML'
+          <!doctype html>
+          <meta charset="utf-8">
+          <title>cottak API reference</title>
+          <meta http-equiv="refresh" content="0; url=cottak/index.html">
+          <link rel="canonical" href="cottak/index.html">
+          <a href="cottak/index.html">cottak API reference</a>
+          HTML
+          touch site/.nojekyll
+
+      - name: Check links in the assembled site
+        run: python3 .github/scripts/check_site_links.py site
+
+      - name: Upload the site
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
   deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-22.04
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
-      - name: Apt Update
-        run: |
-          sudo apt-get update
-
-      - name: Rust Setup
-        run: |
-          rustup toolchain install stable --profile minimal
-          rustup default stable
-          cargo --version
-
-      - name: Package
-        run: |
-          cargo doc --workspace --no-deps --all-features
-          # wget https://img.shields.io/badge/version-${RELEASE_VERSION}-blue.svg -O target/doc/version.svg
-          cp -rf ./images target/doc/images
-
-      # Upload ./target/doc/cot/* to Github Pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload the docs
-          name: "github-pages"
-          path: "target/doc"
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

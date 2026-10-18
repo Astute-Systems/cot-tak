@@ -40,6 +40,10 @@ theme:
 hooks:
   - docs/hooks/rustdoc_hidden.py
 
+exclude_docs: |
+  requirements.txt
+  hooks/
+
 markdown_extensions:
   - admonition
   - attr_list

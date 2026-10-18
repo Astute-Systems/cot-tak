@@ -10,11 +10,12 @@
 
 ## Adding the dependency
 
-Until the first release is on crates.io, depend on the repository:
+The release candidate is tagged `v2.0.0-rc1` and is not on crates.io yet, so depend on the
+repository:
 
 ```toml
 [dependencies]
-cottak = { git = "https://github.com/Astute-Systems/cot-tak", features = ["net"] }
+cottak = { git = "https://github.com/Astute-Systems/cot-tak", tag = "v2.0.0-rc1", features = ["net"] }
 tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
 ```
 

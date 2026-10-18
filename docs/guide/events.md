@@ -92,7 +92,7 @@ The modelled elements include `contact`, `__group`, `takv`, `track`, `status`, `
 `precisionlocation`, `link`, `marti`, `uid`, `archive`, colours and stroke/fill styling, shapes
 (`shape`, `ellipse`, `bullseye`), `__chat` and its group/receipt elements, `__medevac`,
 `__emergency`, `sensor`, `__video` and `__video` connection entries. See the
-[`detail` module](../../api/cottak_core/detail/index.html) for the full list.
+[`detail` module](api:cottak_core/detail/index.html) for the full list.
 
 ### Raw details
 
