@@ -8,7 +8,8 @@ name: Publish to crates.io
 #   2. Add it as the repository (or `crates-io` environment) secret CARGO_REGISTRY_TOKEN.
 #   3. Optional: add required reviewers to the `crates-io` environment so each publish needs approval.
 #
-# To retry a failed publish for an existing release, run this workflow manually with the tag.
+# To retry a failed or partial publish, run this workflow manually (from main) with the release tag.
+# The publish step skips crates that are already on crates.io and waits out crates.io rate limits.
 
 on:
   release:
@@ -60,8 +61,66 @@ jobs:
             exit 1
           fi
 
-      # Publishes in dependency order and waits for the index between crates.
+      # Publishes the crates in dependency order. It is safe to re-run: crates whose version is
+      # already on crates.io are skipped, and crates.io's rate limit for new crates (a burst of 5,
+      # then one every 10 minutes) is waited out instead of failing the job.
       - name: Publish
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
-        run: cargo publish --workspace
+        run: |
+          python3 - <<'PY'
+          import email.utils, json, subprocess, sys, time, urllib.error, urllib.request
+          from datetime import datetime, timezone
+
+          meta = json.loads(subprocess.check_output(["cargo", "metadata", "--no-deps", "--format-version", "1"]))
+          pkgs = {p["name"]: p for p in meta["packages"] if p.get("publish") != []}
+          deps = {n: {d["name"] for d in p["dependencies"] if d["name"] in pkgs} for n, p in pkgs.items()}
+
+          order, done = [], set()
+          while len(order) < len(pkgs):
+              ready = sorted(n for n in pkgs if n not in done and deps[n] <= done)
+              if not ready:
+                  sys.exit("dependency cycle between workspace crates")
+              order += ready
+              done |= set(ready)
+          print("publish order:", " ".join(order), flush=True)
+
+          def published(name, version):
+              req = urllib.request.Request(
+                  f"https://crates.io/api/v1/crates/{name}/{version}",
+                  headers={"User-Agent": "cottak-release-workflow (https://github.com/Astute-Systems/cot-tak)"},
+              )
+              try:
+                  urllib.request.urlopen(req, timeout=30)
+                  return True
+              except urllib.error.HTTPError as e:
+                  if e.code == 404:
+                      return False
+                  raise
+
+          for name in order:
+              version = pkgs[name]["version"]
+              if published(name, version):
+                  print(f"{name} {version} is already published; skipping", flush=True)
+                  continue
+              for attempt in range(1, 31):
+                  proc = subprocess.run(["cargo", "publish", "-p", name], capture_output=True, text=True)
+                  print(proc.stdout, proc.stderr, sep="\n", flush=True)
+                  if proc.returncode == 0:
+                      break
+                  if "429" not in proc.stderr:
+                      sys.exit(f"publishing {name} failed")
+                  wait = 600
+                  marker = "try again after "
+                  if marker in proc.stderr:
+                      text = proc.stderr.split(marker, 1)[1].split(" and see")[0].strip().rstrip(".")
+                      try:
+                          until = email.utils.parsedate_to_datetime(text)
+                          wait = max(30, int((until - datetime.now(timezone.utc)).total_seconds()) + 10)
+                      except (TypeError, ValueError):
+                          pass
+                  print(f"rate limited; waiting {wait}s before retrying {name} (attempt {attempt})", flush=True)
+                  time.sleep(wait)
+              else:
+                  sys.exit(f"gave up publishing {name}")
+          PY
