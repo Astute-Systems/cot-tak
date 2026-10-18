@@ -14,7 +14,7 @@
   <a href="https://github.com/Astute-Systems/cot-tak/actions/workflows/document-ubuntu-22.04.yaml"><img alt="Docs build" src="https://github.com/Astute-Systems/cot-tak/actions/workflows/document-ubuntu-22.04.yaml/badge.svg"></a>
   <a href="https://astute-systems.github.io/cot-tak/"><img alt="Documentation" src="https://img.shields.io/badge/docs-guide%20%2B%20API-blue?logo=materialformkdocs&logoColor=white"></a>
   <a href="#license"><img alt="License" src="https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue"></a>
-  <a href="https://crates.io/crates/cottak"><img alt="crates.io" src="https://img.shields.io/crates/v/cottak?include_prereleases&logo=rust&label=crates.io"></a>
+  <a href="https://crates.io/crates/cottak"><img alt="crates.io" src="https://img.shields.io/crates/v/cottak?logo=rust&label=crates.io"></a>
   <a href="https://github.com/Astute-Systems/cot-tak/releases"><img alt="Release" src="https://img.shields.io/github/v/tag/Astute-Systems/cot-tak?include_prereleases&label=release&sort=semver"></a>
   <a href="Cargo.toml"><img alt="MSRV" src="https://img.shields.io/badge/rust-1.88%2B-orange?logo=rust"></a>
 </p>
@@ -38,7 +38,7 @@
   <a href="#complete-feature-list">Features</a>
 </p>
 
-> **Status: 2.0.0 release candidate (`v2.0.0-rc2`).** The crate has been rebuilt as a multi-crate
+> **Status: 2.0.0.** The crate has been rebuilt as a multi-crate
 > workspace; the 0.1 API is gone. See [Compatibility and limits](https://astute-systems.github.io/cot-tak/concepts/compatibility/)
 > for exactly what has and has not been validated against live ATAK/WinTAK/TAK Server builds.
 
@@ -184,12 +184,11 @@ details of what is and is not protected.
 
 ## Quick start
 
-> **Installing.** `cottak` **2.0.0-rc2** is on [crates.io](https://crates.io/crates/cottak). Because it is a
-> pre-release, name the version explicitly (a bare `cargo add cottak` still picks the old 0.1.x line).
+> **Installing.** `cottak` **2.0.0** is on [crates.io](https://crates.io/crates/cottak). It replaces the old 0.1.x line, which has a different API.
 
 ```toml
 [dependencies]
-cottak = { version = "2.0.0-rc2", features = ["net"] }
+cottak = { version = "2", features = ["net"] }
 tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
 ```
 

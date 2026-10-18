@@ -10,23 +10,21 @@
 
 ## Adding the dependency
 
-`cottak` **2.0.0-rc2** is published on [crates.io](https://crates.io/crates/cottak). It is a
-pre-release, so give the version explicitly (a bare `cargo add cottak` still resolves to the old
-0.1.x line, which has a different API):
+`cottak` **2.0.0** is published on [crates.io](https://crates.io/crates/cottak):
 
 ```sh
-cargo add cottak@2.0.0-rc2 --features net
+cargo add cottak --features net
 ```
 
 or in `Cargo.toml`:
 
 ```toml
 [dependencies]
-cottak = { version = "2.0.0-rc2", features = ["net"] }
+cottak = { version = "2", features = ["net"] }
 tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
 ```
 
-To track the repository instead, use `git = "https://github.com/Astute-Systems/cot-tak", tag = "v2.0.0-rc2"`.
+To track the repository instead, use `git = "https://github.com/Astute-Systems/cot-tak", tag = "v2.0.0"`.
 
 Pick the [features](../reference/features.md) you need:
 
