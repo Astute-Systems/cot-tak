@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<Style id="s"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>ff00ff00</color><width>3</width></LineStyle><PolyStyle><color>7f0000ff</color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<b>x</b>]]></description>
+<TimeStamp><ata><Data name="type"><value>a-f-G-U.net/kml/2.2"><Document>
+<Style id="s"><IconStyle><?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document><Placemark id="U1"><name>ALPHA</name><Point><coordinates>153,-2cemark id="U1"><name>ALPHAversnates>153,-27.5</cooionr

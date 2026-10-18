@@ -1,0 +1,92 @@
+site_name: cottak
+site_description: Cursor on Target (CoT) and TAK toolkit for Rust
+site_url: https://astute-systems.github.io/cot-tak/
+repo_url: https://github.com/Astute-Systems/cot-tak
+repo_name: Astute-Systems/cot-tak
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; Astute Systems. Licensed under MIT OR Apache-2.0 (see Licensing).
+
+strict: true
+
+theme:
+  name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+hooks:
+  - docs/hooks/rustdoc_hidden.py
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: ["."]
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - Installation: getting-started/installation.md
+      - Quick start: getting-started/quickstart.md
+  - Guide:
+      - Events and details: guide/events.md
+      - Message builders: guide/messages.md
+      - TAK Protocol v1: guide/protocol.md
+      - TAK Server client: guide/client.md
+      - Mesh networking: guide/mesh.md
+      - Enrollment: guide/enrollment.md
+      - Marti API: guide/marti.md
+      - Embedded server: guide/server.md
+      - Conversion and symbology: guide/convert.md
+  - Concepts:
+      - Architecture: concepts/architecture.md
+      - Security model: concepts/security.md
+      - Compatibility and limits: concepts/compatibility.md
+  - Reference:
+      - API (rustdoc): reference/api.md
+      - Cargo features: reference/features.md
+      - Licensing: reference/licensing.md
+  - Development:
+      - Contributing: development/contributing.md
+      - Testing and fuzzing: development/testing.md
+      - Documentation: development/documentation.md

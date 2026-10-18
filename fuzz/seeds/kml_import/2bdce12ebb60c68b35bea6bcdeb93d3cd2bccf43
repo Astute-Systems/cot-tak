@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml11.2"><Document>
+<Style it="s"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>fff0000f</color><width>3</width></LineStyle><PolyStyle><color>7f0400ff</color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<b>y>normal</key><styleUrl>#s</styleUrl></Pair><</name><styleUrl>#m</styleUrl><description><![CDATA[<<St?"1.<"z?>k
+ml xmlns="http://www﻿engis.nee?>k
+ml xmlns="http://www﻿engis.ne<:><PlacemaIconStylerk id="U0"><name>tp/kml/3.2r>Set"http://www﻿engis.ne<:><PlacemaIconStylerk id="U0"><name>tp/kml/3.2r//kml://www.opttp:/nate//kml/3.2r><D>0"<?x><name>tp/kml/3.2r><D><PlacemaIconSet/kz?>k
+ml xmlns="http://www﻿engis.ne<tp>k
+ml xmlns="http://www﻿engis.ne<:><PlacemaIconStylerk id="U0"><nam!e>tp/kml/3.2r><D>0"<?x><name>tp/kml/3.2r><D><PlacemaIconStylerk id="U0"><name>tp/kml/3.2r><D>0"<?x><name>tp/kmlleMap>
+<Foldee><stx</b>]]></description>
+<TimeStamp><when>        C                 9213-01-31T12:00:00Z</when></TimeStamp><Point><altitudeMode>absolute</altitudeMode><coordinates>152.02,-27.47,100</coordinates></Point></Placemark>
+<Placemark><name>Line</name><LineString><coordinates>0,- 1nt,1 2,:</coordinates></LineString></Placemark>
+</Folder></Document></kml>

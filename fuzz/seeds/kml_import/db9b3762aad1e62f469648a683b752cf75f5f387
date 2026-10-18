@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<Style id="s"><IconStyle><cname><styleUrl>#m</styleUrl><description><![eometry><Point><coordinates>1,1</coordinates></Point></MultiGeemetry></Plan></TimeStamp><Point><altitude xmlns="http:/&www.opengis.net/kml/2.2"><Document><Placemark id="U2"><name>ALPHA</name><Point><coordes></Point><E><Data name="type"><value>a-f-G-U-C</value></Data></ExtendedData></arRing><coordinates>0,0 0,1 1,1 1,0 0,0</coordinates></LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark><name>Multi</name><MultiGeometry><Point><cooDocument></kml>

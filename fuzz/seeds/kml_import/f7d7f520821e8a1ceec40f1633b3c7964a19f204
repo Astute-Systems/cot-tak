@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<Style it="s"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>fff0000f</color><width>3</width></LineStyle><PolyStyle><color>7f0400ff</color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>3333333333333333333333#s</styleUrl></Pair></StyleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl>emark><name>Line</name><LineString><coordinates>0,T- 1,1 2,:</coordinates></LineString></Placemark>
+</Folder></Document></kml>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<Style id="s"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>ff00ff00</color><width>3</width></LineStyle><PolyStyle><color>7f0000f*f</color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap
+><Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<ble>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pa----------------------------------------------------------------------e--------------></StyleManame><styleUrl>#m</styleUrl><description><![CDATA[<ble>
+</key><styleUrl>#s</ste>U2</value></Data><Data Nname="type"><value>a-f-G-U-C><?xml version="1.0" encoding=#UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><DoDocument><Placemark id="dedData><Data :amU1"><name>ALP" eHA</name><Point>󖖘v<coordinates>153,-27.5</coordinates></Point><Exte version="1.0"ndedData><Data :ame="uid"><value>U2</value></Data><Dacument><Placemark id="dedData><rmal</key><styleUrl>#s</styleUrl></Pa-----t/kml/2.2"><Document>
+<Style id="s"><IconStym</styleUrlyleUrl>#m</styleUrl><description><![CDATA[<ble>
+<StyleMap id="m"><Pair><key>nooint>󖖘v<coordinates>153,-27.5</coordinates></Point><ExtendedData><Data :ame="uid"><value>U2</value></Data><Data Nname="type"><value>a-f-G-U-C><?xml version="1.0" encoding=#UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><DoDocument><Placemark id="dedData><Data :amU1"><name>ALP" eHA</name><Point>󖖘v<coordinates>153,-27.5</coordinates></Point><Exte version="1.0"ndedData><Data :ame="uid"><value>U2</value></Data><Dacument><Placemark id="dedData><rmal</key><styleUrl>#s</styleUrl></Pa-----t/kml/2.2"><Document>
+<Style id="s"><IconStym</styleUrl><description><![CDATA[<ble>
+<StyleMap id="m"><Pair><key>nooint>󖖘v<coordinates>153,-27.5</coordinates></Point><ExtendedData><Data :ame="uid"><value>U2</value></Data><Data Nname="type"><value>a-f-G-U-C><?xml version="1.0" encoding=#UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><DoDocument><Placemark id="dedData><Data :amU1"><name>ALP" eHA</name><Point>󖖘v<coordinates>153,-27.5</coordinates></Point><Exte version="1.0"ndedData><Data :ame="uid"><value>U2</value></Data><Dacument><Placemark id="dedData><rmal</key>key><styleUrl>#s</styleUrl></Pair></StyleMap
+><Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<ble>
+<StyleMa&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&yleMap id="m"><Pair><key>nooint>󖖘v<coordinates>153,-27.5</coordinates></Point><ExtendedData><Data :ame="uid"><value>U2</value></Data><Data Nname="type"><value>a-f-G-U-C><?xml version="1.0" encoding=#UTF-8"?>
+<kml xmlns="http://www.opengis.netlacemark id="p"><name>Pin</name><styleUrl>#m<.styleUrl><description><![CDATA[<ble>
+<StyleMap id="m"><Pair><key>normal</k------------------------------------------------------------------><Folder><Placemark id="p"><nam>x</b>]]></description>
+<TimeStamp><when>7104-01-31T12:%0:00Z</when></TimeStamp><Point><altitudeMode>absotlue</altitudeMode><coordinates>153.02,-27.47,880</coordinates></Point></Placemark>
+<Placemark><name>Line</name><LineString><coordinates>0,0 1,1 2,2</coordinates></LineString></Placemark>
+<Placemark><name>Area</name><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0 0,1 1,1 1,0 0,0</coordinates>?]q>(</LinearRing></outerBoundaryIs></Polygon></Placemark>
+<Placemark><name>Multi</name><MultiGeometry><Point><coordinates>1,1</coordinates></Point></MultiGeometry></Placemark>
+</Folder></Document></kml>

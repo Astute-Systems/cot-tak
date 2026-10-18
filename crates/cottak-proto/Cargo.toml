@@ -1,0 +1,39 @@
+[package]
+name = "cottak-proto"
+description = "TAK Protocol v1 (protobuf) mapping, framing and negotiation for Cursor on Target"
+readme = "README.md"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+# The Rust code is MIT OR Apache-2.0; the bundled .proto schema files are GPL-3.0
+# (see proto/NOTICE.md), so the crate as a whole carries both.
+license = "(MIT OR Apache-2.0) AND GPL-3.0-only"
+include = ["src/**", "proto/**", "build.rs", "examples/**", "tests/**", "README.md", "LICENSE-GPL-3.0"]
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[features]
+default = []
+# tokio-util Decoder/Encoder for streaming connections
+codec = ["dep:tokio-util"]
+
+[dependencies]
+cottak-core = { workspace = true }
+prost = { workspace = true }
+bytes = { workspace = true }
+thiserror = { workspace = true }
+time = { workspace = true }
+tokio-util = { workspace = true, optional = true }
+
+[build-dependencies]
+prost-build = { workspace = true }
+protox = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }
+
+[lints]
+workspace = true

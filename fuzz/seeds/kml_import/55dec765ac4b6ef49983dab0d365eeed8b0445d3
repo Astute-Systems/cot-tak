@@ -1,0 +1,6 @@
+ lxm<?version="1.0" encoding="?>
+<kmument>
+<Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<b>x</b>]]></description>
+#<TimeStamp><when>1012-01-31T12:00:00Z</when></TimeStamp><Point><altitudeMode>absolute</altitudeMode><coordinates>153.02,-27.47,100</coordinates></Point></Placemark>
+<Placemark><name>Line</name><LineString><coordinates>0,0 1,1 2,2</coordinateemark>
+<Placema>

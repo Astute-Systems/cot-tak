@@ -1,0 +1,10 @@
+<?xml version="1.0" encodi"1.0" encoding="U8-FT"?>
+<kml xmlns="http://www.opengis.net/kml24.2"><Document>
+<Style it="s"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>fff0000f</color><width>3</width></LineStyle><PolyStyle><color>7f0400ff</color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<b>al</key><styleUrl>#s</s<?x;<?xml verml version="1.0" enc"UTF-8"?>iiiiii=<?x1.0" enc"UTF-8"?>iiiiii=<?xml veUTtrm''''y>normal</ke?y<>)iiiiiiiiiiiiiiiiiii=<?xml version= version="1.0" enc"UT,-8"?>iiiiii=<?x<?xml v1.0" enc"UTF-8"?>iiiiii=<?xml veUTtrm''''''''''''''''''''''''St''iiiE
+<!dal</key><styleUrl>#s</styleUrl></Pair></StyleMap>
+<Folder><Placemark id="p"><nark id="p"><name>Pin</name><stx</b>]]></description>
+<TimeStamp><when>        C                 9214-01-31T12:00:08Z</when></TimeStamp><Point><altitudeMode>absolute</altitudeMode><coordinates>153.02,-27.4,7100</coordinates></Point></Placemark>
+<Placemark><name>Line</name><LineString><coordinates>0,- 1,1 2,:</coordinates></LineString></Placemark>
+</Folder></Document></kml>

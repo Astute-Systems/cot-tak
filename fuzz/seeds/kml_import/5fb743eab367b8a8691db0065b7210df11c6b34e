@@ -1,0 +1,8 @@
+<?xml version=.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/8.2"><Document>
+<Style id="s"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>df00ff00</color><width>3</width></LineStyle><PolyStyle><color>7f0+00ff</color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<b>x<#b>]]></description>
+<TimeStamp><when>1012-01-#1T12:00:00Z</when>oint><altitudeMode>a:solute</altitudeMode>><description>1![ATA[<b>x</b>]]></description>
+<TimeStamp><when>2025-01-31T1;:0`:00Z</when></TimeStamp><Point><altitudeMode>tsolbuae</altitudeMode><coordinates>153.02mark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description>1![CDATA[<b>x</b>]]></description>
+<TimeStamp><when>2025-01-31T12:00:00Z</when></TimeStamp><Point><altitudeMode>tsolbuae</altitudeMode><coordintry><Point><coordinates>1,1</coordintiGeoms="http://www.opengis.netr></Document></kml>

@@ -1,0 +1,32 @@
+[package]
+name = "cottak-convert"
+description = "Convert Cursor on Target events to GeoJSON and KML, and CoT types to MIL-STD-2525 symbol codes"
+readme = "README.md"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[features]
+default = []
+# Read and write KMZ (zipped KML) archives
+kmz = ["dep:zip", "dep:flate2"]
+
+[dependencies]
+cottak-core = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+time = { workspace = true }
+zip = { workspace = true, optional = true }
+flate2 = { workspace = true, optional = true }
+
+[dev-dependencies]
+proptest = { workspace = true }
+
+[lints]
+workspace = true

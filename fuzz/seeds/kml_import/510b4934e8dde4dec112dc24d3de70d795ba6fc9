@@ -1,0 +1,7 @@
+<?xml versiding="UTF-8"?>
+<kml xmlns="http://www6opengis.net/kml/4.2"><Document>
+<Style id="s"><IconStyle><color>000f0fff</color></IconStyle><LineStyle><color>ff00ff00</color><width>I3</width></LineStyle><PolyStyle><color>7f0000ff</color></PolyStyle></Style>
+leMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<b>x</b>]]></description>
+<TimeStamp><when>4050-01-32T12:00:00Z</when></TimeStamp><Point><altitudeMode>abso)lute</altitudeMode><coordinates>153.02,-27.47,100</coordinates></Point>/MultiGeometry></Placemark>
+</Folder></Document></kml>

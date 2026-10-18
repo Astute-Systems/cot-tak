@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/8.2"><Document>
+<Style id="</coordinates></Point></Plcmeas"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>ff00ff00</color><width>3</width></LineStyle><PolyStyle><color>7f0000ff</color></PolyStyle></Style>
+<StyleMap if="m"><Pair><key>normal</key><styleUrl>#q</styleUrl></Pair></StyleMap>
+<Folder><Placemark id="p"><name>name>Multi</name><MultiGeometry><Point><coordinates>1,1</coordinates></Point></MultiGeometry></Placemark>
+</Folder></Document></kml>

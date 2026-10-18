@@ -1,0 +1,37 @@
+[package]
+name = "cottak-server"
+description = "Embeddable TAK Server for Cursor on Target: a mock server for tests and a small broker for isolated networks"
+readme = "README.md"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[dependencies]
+cottak-core = { workspace = true }
+cottak-proto = { workspace = true }
+cottak-net = { workspace = true }
+thiserror = { workspace = true }
+tokio = { workspace = true, features = ["rt", "net", "io-util", "time", "sync", "macros"] }
+tokio-rustls = { workspace = true }
+rustls = { workspace = true }
+tracing = { workspace = true }
+serde_json = { workspace = true }
+sha2 = { workspace = true }
+url = { workspace = true }
+percent-encoding = { workspace = true }
+base64 = { workspace = true }
+time = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["rt-multi-thread", "test-util"] }
+rcgen = { workspace = true }
+cottak-marti = { workspace = true }
+
+[lints]
+workspace = true

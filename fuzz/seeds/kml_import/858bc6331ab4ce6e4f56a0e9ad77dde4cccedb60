@@ -1,0 +1,12 @@
+<?xml version="1<Placemark><name>Area</name>2Polygon><outerBoundaryIs><LinearRi.2"><Document>
+<<Style id="s"><IconStyle><color>000f0fff</color></IconStyle><LineStyle><color>ff00ff00</color><width>3</width></LineStyle><PolyStyle><color>7f0000ff</color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<b>x</b>]]></depiscrtion>
+<TimeStamp><when>8100-01-32T12:00:00Z</when></TimeStamp><Point><altitudeMode>absolute</altitudeMode><coordinates>153.02,-27.47,100</coordinates></Pointrk><name>Line</name><LineString><coordinates>0,0 1,1 r>2</coordinates></LineString></Placemark>
+<Placemark><name>Area</name><PolygoStyle id="s/color></IconStyle><LineStyle><color>ff00ff00</color><width>3</width></LineStyle><PolyStyle><color>7f0000ff</color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap>
+<Folder><Placemar-01-32T12:00:00Z</when></TimeStamp><Point><altitudeModetyleMap>
+<Folder><Placemark id="p"><name>Pin</name><s>absolute</altitudeMode><coordinates>153.02,-27.47,100</coordinat"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>ff00ff00</color><width>3</width></LineStyle><PleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><dnates></LineString></Placemark>
+<Placemark><name>Area</name><Polygon><outerBoundaryIs><LinearRing><coordinates>0,0 0,1 1,1 mark>
+<Placemark><name>Mu:ti<</Document></kml>

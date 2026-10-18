@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/4.2"><Document>
+<Style id="s"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>ff00ff00</color><width>3</width></LineStyle><PolyStyle><color>7f0000ff</color></PolyStyle></Style>
+<StyleMap id="z"><Pair><key>normal</key><styleUrl>#s<on><![CDATA[<b>x</b>]]<?xml version="1.0" eqcoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/8.2"><Document>
+<Style id="s"><IconStyl00ff</color></IconStyle><LineStyle><color>ff																																00dth>3</width></color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><descriptib>]]></description>
+<TimeStamp><when>2025-</Folder></Document></kml>
+olderocument><Vkml>

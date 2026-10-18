@@ -1,0 +1,4 @@
+# Pinned so the published site is reproducible. Update deliberately.
+mkdocs==1.6.1
+mkdocs-material==9.7.7
+pymdown-extensions==12.3

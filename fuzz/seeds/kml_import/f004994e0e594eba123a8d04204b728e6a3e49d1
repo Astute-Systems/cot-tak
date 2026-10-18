@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<Style id="s"><IconStyle><color>]f0000ff</color></IconStyle><LineStyle><color>ff00lor>ff00ff00</color><width>3</width></LineStyle><PolyStyle><color></color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap>
+<Folder>mark>
+</Folder></Document></kml>

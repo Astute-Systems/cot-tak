@@ -1,0 +1,75 @@
+[package]
+name = "cottak-fuzz"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+bytes = "1"
+serde_json = "1"
+cottak-core = { path = "../crates/cottak-core" }
+cottak-proto = { path = "../crates/cottak-proto" }
+cottak-convert = { path = "../crates/cottak-convert", features = ["kmz"] }
+cottak-enroll = { path = "../crates/cottak-enroll" }
+cottak-marti = { path = "../crates/cottak-marti" }
+
+# Keep fuzzing out of the main workspace.
+[workspace]
+
+[[bin]]
+name = "xml_parse"
+path = "fuzz_targets/xml_parse.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "event_roundtrip"
+path = "fuzz_targets/event_roundtrip.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "proto_stream"
+path = "fuzz_targets/proto_stream.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "mesh_decode"
+path = "fuzz_targets/mesh_decode.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "geojson_import"
+path = "fuzz_targets/geojson_import.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "text_formats"
+path = "fuzz_targets/text_formats.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "marti_models"
+path = "fuzz_targets/marti_models.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "kml_import"
+path = "fuzz_targets/kml_import.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "kmz_import"
+path = "fuzz_targets/kmz_import.rs"
+test = false
+doc = false

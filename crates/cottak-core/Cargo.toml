@@ -1,0 +1,30 @@
+[package]
+name = "cottak-core"
+description = "Typed Cursor on Target (CoT) / TAK event model with lossless XML round-tripping"
+readme = "README.md"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[features]
+default = []
+serde = ["dep:serde", "time/serde"]
+
+[dependencies]
+quick-xml = { workspace = true }
+thiserror = { workspace = true }
+time = { workspace = true }
+uuid = { workspace = true }
+serde = { workspace = true, optional = true }
+
+[dev-dependencies]
+proptest = { workspace = true }
+
+[lints]
+workspace = true

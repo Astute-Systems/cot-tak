@@ -1,0 +1,70 @@
+[package]
+name = "cottak"
+description = "Cursor on Target (CoT) and TAK Server toolkit for Rust"
+readme = "README.md"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[features]
+default = ["proto"]
+# TAK Protocol v1 (protobuf) mapping, framing and negotiation
+proto = ["dep:cottak-proto"]
+# tokio_util codec for streaming connections
+codec = ["proto", "cottak-proto/codec"]
+# Async TAK Server client (TCP/TLS) and mesh UDP transport
+net = ["proto", "dep:cottak-net"]
+# Certificate enrollment (tak:// onboarding, CSR, signClient)
+enroll = ["net", "dep:cottak-enroll"]
+# Marti REST API client (missions, files, contacts, groups)
+marti = ["dep:cottak-marti"]
+# GeoJSON / KML conversion and MIL-STD-2525 symbol codes
+convert = ["dep:cottak-convert"]
+# KMZ (zipped KML) reading and writing in the conversion crate
+kmz = ["convert", "cottak-convert/kmz"]
+# Embeddable TAK Server (mock server for tests, small broker)
+server = ["net", "dep:cottak-server"]
+# PKCS#12 import/export of client identities
+pkcs12 = ["enroll", "cottak-enroll/pkcs12"]
+serde = ["cottak-core/serde"]
+
+[dependencies]
+cottak-core = { workspace = true }
+cottak-proto = { workspace = true, optional = true }
+cottak-net = { workspace = true, optional = true }
+cottak-enroll = { workspace = true, optional = true }
+cottak-marti = { workspace = true, optional = true }
+cottak-convert = { workspace = true, optional = true }
+cottak-server = { workspace = true, optional = true }
+
+[lints]
+workspace = true
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["rt-multi-thread", "macros", "signal"] }
+
+[[example]]
+name = "geochat_bot"
+required-features = ["net"]
+
+[[example]]
+name = "enroll"
+required-features = ["enroll"]
+
+[[example]]
+name = "mission_upload"
+required-features = ["marti"]
+
+[[example]]
+name = "mock_server"
+required-features = ["server"]
+
+[[example]]
+name = "geojson_to_cot"
+required-features = ["convert"]

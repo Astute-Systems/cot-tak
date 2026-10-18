@@ -1,0 +1,9 @@
+<?xmlve<Folder><PlacemaryleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDAT"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<Style id="s"><IconStyle><color>ff0000ff id="m<Pair><key>normal</key><styleUrl>leMap>
+<Folder><PlacemaryleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<b>x</b>]]></description>
+<TimeStamp><when>2025-01-31T12:00:00Z</when></TimeStamp><Point><altitudeMode>absolute</altitudeMode><coordinates>153.02,-27.47,100</coordinates></Point></Placemark>
+<Placemark><name>Line</name><LineString><coordinates>0,0 1,1 2,2</coordinates></LineString>Geometry></Placemark>
+</Folder>#</Document></kml>

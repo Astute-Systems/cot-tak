@@ -28,16 +28,13 @@ jobs:
 
       - name: Rust Setup
         run: |
-          sudo ./scripts/init-build-machine.sh
-
-      - name: Cargo check
-        run: |
-          source ~/.cargo/env
+          rustup toolchain install stable --profile minimal
+          rustup default stable
           cargo --version
 
       - name: Package
         run: |
-          cargo doc --no-deps
+          cargo doc --workspace --no-deps --all-features
           # wget https://img.shields.io/badge/version-${RELEASE_VERSION}-blue.svg -O target/doc/version.svg
           cp -rf ./images target/doc/images
 

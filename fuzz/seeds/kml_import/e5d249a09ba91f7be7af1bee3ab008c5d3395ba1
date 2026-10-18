@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://wwws.net/kml/2.2"><Document>
+<Style StyleMapid="s"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>ff00ff00</color><width>3</width></LineStyle><PolyStyle><color>7f0000ff</color></PolyStyle></Style>
+<StyleMap id="m>l"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap
+><Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<b>x</b/style>]]></description>tp://www.opengis.net/kml/2.2"><Document>
+<Style StyleMapid="s"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>ff01ff00</color><width>3</width></LineStyle><PolyStyle><color>7f0000ff</color></PolyStyle></Style>
+<StyleMap id="m>l"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap
+><Folder><Placemark id="p"><name>Pin</n/StyleMap
+><Foldee>absotlue<LineSemaument></kml>

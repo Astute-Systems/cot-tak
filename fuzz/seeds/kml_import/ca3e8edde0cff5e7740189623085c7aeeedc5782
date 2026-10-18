@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/"><Document>
+<Style id="s"><IconStyle><color>ff0000ff</color></IconStyle>/StyleMap>
+<Folder><Placemark id="p"><name>Pin</name><styleUrl>#m</styleUrl><description><![CDATA[<b>x</b>]]></description>
+<TimeStamp><when>2025-01-31T12:00:00Z</when>:/TimeStamp><>

@@ -1,0 +1,6 @@
+<?="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<Style id="s"><IconStyle><color>ff0000ff</color></IconStyle><LineStyle><color>fff0000f</color><width>;</width></LineStyle><PolyStyle><color>7f0400ff</color></PolyStyle></Style>
+<StyleMap id="m"><Pair><key>normal</key><styleUrl>#s</styleUrl></Pair></StyleMap>
+<Folder><Placemark id="p"><name>ine</name><LineString><coordinates>0,0 1,1 2,2</coordinates></LineString></Placemark>
+</Folder></Document></kml>
