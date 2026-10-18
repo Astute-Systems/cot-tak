@@ -10,8 +10,9 @@
 
 ## Adding the dependency
 
-The release candidate is tagged `v2.0.0-rc1` and is not on crates.io yet, so depend on the
-repository:
+The [`cottak` crate on crates.io](https://crates.io/crates/cottak) currently carries the old
+**0.1.x** line, which has a different API. The 2.0.0 release candidate is tagged `v2.0.0-rc1` and is
+not published there yet, so depend on the repository:
 
 ```toml
 [dependencies]

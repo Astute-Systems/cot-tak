@@ -14,6 +14,7 @@
   <a href="https://github.com/Astute-Systems/cot-tak/actions/workflows/document-ubuntu-22.04.yaml"><img alt="Docs build" src="https://github.com/Astute-Systems/cot-tak/actions/workflows/document-ubuntu-22.04.yaml/badge.svg"></a>
   <a href="https://astute-systems.github.io/cot-tak/"><img alt="Documentation" src="https://img.shields.io/badge/docs-guide%20%2B%20API-blue?logo=materialformkdocs&logoColor=white"></a>
   <a href="#license"><img alt="License" src="https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue"></a>
+  <a href="https://crates.io/crates/cottak"><img alt="crates.io" src="https://img.shields.io/crates/v/cottak?logo=rust&label=crates.io"></a>
   <a href="https://github.com/Astute-Systems/cot-tak/releases"><img alt="Release" src="https://img.shields.io/github/v/tag/Astute-Systems/cot-tak?include_prereleases&label=release&sort=semver"></a>
   <a href="Cargo.toml"><img alt="MSRV" src="https://img.shields.io/badge/rust-1.88%2B-orange?logo=rust"></a>
 </p>
@@ -33,6 +34,7 @@
   <a href="https://astute-systems.github.io/cot-tak/getting-started/quickstart/">Quick start</a> &middot;
   <a href="https://astute-systems.github.io/cot-tak/api/">API reference</a> &middot;
   <a href="https://astute-systems.github.io/cot-tak/concepts/security/">Security model</a> &middot;
+  <a href="https://crates.io/crates/cottak">crates.io</a> &middot;
   <a href="#complete-feature-list">Features</a>
 </p>
 
@@ -181,6 +183,10 @@ Read the [security model](https://astute-systems.github.io/cot-tak/concepts/secu
 details of what is and is not protected.
 
 ## Quick start
+
+> **Installing.** The [`cottak` crate on crates.io](https://crates.io/crates/cottak) currently
+> carries the old **0.1.x** line (a different API). The **2.0.0 release candidate** is installed
+> from this repository by tag, as below, until 2.0.0 is published there.
 
 ```toml
 [dependencies]
