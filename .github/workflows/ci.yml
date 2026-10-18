@@ -24,7 +24,7 @@ jobs:
           - os: ubuntu-latest
             toolchain: "1.88" # keep in sync with workspace rust-version
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: rustup toolchain install ${{ matrix.toolchain }} --profile minimal && rustup default ${{ matrix.toolchain }}
       - uses: Swatinem/rust-cache@v2
       - run: cargo test --workspace --all-features
@@ -34,7 +34,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: rustup toolchain install stable --profile minimal -c clippy,rustfmt && rustup default stable
       - uses: Swatinem/rust-cache@v2
       - run: cargo fmt --all -- --check
@@ -44,25 +44,27 @@ jobs:
   deny:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: EmbarkStudios/cargo-deny-action@v2
 
   audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: rustup toolchain install stable --profile minimal && rustup default stable
       - uses: Swatinem/rust-cache@v2
       - run: cargo generate-lockfile
-      - uses: rustsec/audit-check@v2
+      # `cargo audit` is run directly: the rustsec/audit-check action still targets Node 20.
+      - uses: taiki-e/install-action@v2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          tool: cargo-audit
+      - run: cargo audit
 
   # A short fuzzing run on every change; run the targets for longer locally or on a schedule.
   fuzz-smoke:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - run: rustup toolchain install nightly --profile minimal
       - uses: Swatinem/rust-cache@v2
         with:
