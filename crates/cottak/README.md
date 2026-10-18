@@ -24,6 +24,8 @@
   <img alt="fuzzed" src="https://img.shields.io/badge/fuzzing-9%20targets-success">
   <img alt="cargo deny" src="https://img.shields.io/badge/cargo--deny%20%2B%20audit-clean-success">
   <img alt="rustls" src="https://img.shields.io/badge/TLS-rustls%20(no%20OpenSSL)-success">
+  <a href="https://slsa.dev/spec/v1.0/levels#build-l3"><img alt="SLSA 3" src="https://slsa.dev/images/gh-badge-level3.svg"></a>
+  <a href="https://github.com/Astute-Systems/cot-tak/actions/workflows/slsa-provenance.yml"><img alt="SLSA provenance workflow" src="https://github.com/Astute-Systems/cot-tak/actions/workflows/slsa-provenance.yml/badge.svg"></a>
 </p>
 
 <p align="center">
@@ -170,6 +172,7 @@
 | **Fuzzed** | 9 `cargo-fuzz` targets (XML, events, protobuf, mesh, GeoJSON, KML, KMZ, text formats, Marti JSON) with seed corpora; a smoke run on every CI build; every bug found is pinned by a regression test |
 | **Hostile-input hardened** | Limits on size, depth, counts and archive expansion; XXE and entity bombs refused; request smuggling vectors refused in the embedded HTTP server |
 | **Supply chain checked** | `cargo deny` (advisories, licences, banned crates, sources) and `cargo audit` in CI; OpenSSL and native-tls are banned |
+| **Verifiable releases** | Release crate archives carry signed **SLSA Level 3 provenance** built by the [SLSA GitHub generator](https://github.com/slsa-framework/slsa-github-generator); [verify them](https://astute-systems.github.io/cot-tak/concepts/security/#verifying-a-release) with `slsa-verifier` |
 | **Portable** | CI on Linux, macOS and Windows; stable, beta and the **MSRV (1.88)** |
 | **Docs cannot rot** | Rustdoc built with `-D warnings`; every Rust snippet in the guide is a doctest; site links are checked |
 | **Stable error surface** | Errors and events are `#[non_exhaustive]`; secrets are redacted from `Debug` |

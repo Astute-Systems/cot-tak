@@ -56,6 +56,43 @@ CI runs `cargo deny` (advisories, licences, banned crates, sources) and `cargo a
 change, and the MSRV resolver is used so dependency versions are what the minimum toolchain can
 actually build. Advisories that apply are fixed by upgrading, not ignored.
 
+## Release provenance (SLSA)
+
+Every published release carries **SLSA Level 3 build provenance** for its crate archives
+(`*.crate`, produced by `cargo package`). The
+[`SLSA provenance`](https://github.com/Astute-Systems/cot-tak/blob/main/.github/workflows/slsa-provenance.yml)
+workflow builds the archives, hashes them and calls the
+[SLSA GitHub generator](https://github.com/slsa-framework/slsa-github-generator), which runs in
+an isolated job and signs a provenance statement with the workflow's OIDC identity. The statement
+records the source repository, the tag, the workflow and the SHA-256 of each archive, and is
+attached to the GitHub release as `multiple.intoto.jsonl`.
+
+This lets you check that an archive was built by this repository's CI from the tagged source and
+was not modified afterwards. It does **not** replace reading the code, and it covers the crate
+archives only (not your own build of the library).
+
+### Verifying a release
+
+1. Download the `.crate` file you want and `multiple.intoto.jsonl` from the
+   [release page](https://github.com/Astute-Systems/cot-tak/releases).
+2. Install [`slsa-verifier`](https://github.com/slsa-framework/slsa-verifier).
+3. Verify, naming the source repository and the release tag:
+
+```sh
+slsa-verifier verify-artifact cottak-core-2.0.0-rc1.crate \
+  --provenance-path multiple.intoto.jsonl \
+  --source-uri github.com/Astute-Systems/cot-tak \
+  --source-tag v2.0.0-rc1
+```
+
+A successful run prints `PASSED: SLSA verification passed`. If the archive, the tag or the
+repository does not match the provenance, verification fails and you should not use the file.
+
+!!! note
+    Provenance is attached when a GitHub release is *published*. A bare tag push runs the same
+    build (to catch problems early) but uploads no provenance. The archives are built with
+    `cargo package --no-verify`; their contents are tested by the regular CI.
+
 ## What is *not* protected
 
 - **The mesh has no authentication or encryption.** That is a property of TAK's UDP mesh protocol.

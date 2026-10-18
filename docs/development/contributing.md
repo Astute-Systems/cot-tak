@@ -68,5 +68,15 @@ cargo +1.88 test --workspace --all-features                # the MSRV
 3. Run the checks above.
 4. Describe *why* in the pull request, and any behaviour that is verified only against mocks.
 
+## Releases
+
+1. Set the version in the workspace `Cargo.toml` (`[workspace.package]` and the
+   `[workspace.dependencies]` path pins) and update the version mentioned in the docs.
+2. Make sure CI and the Docs workflow pass on `main`.
+3. Tag the commit (`git tag -a vX.Y.Z -m "..."`), push the tag, and publish a GitHub release
+   (`gh release create vX.Y.Z --prerelease` for release candidates).
+4. The `SLSA provenance` workflow packages the crates and attaches signed provenance to the
+   release; see [Verifying a release](../concepts/security.md#verifying-a-release).
+
 By contributing you agree that your work is licensed as described in
 [Licensing](../reference/licensing.md).
