@@ -16,6 +16,8 @@ categories.workspace = true
 default = []
 # Read and write KMZ (zipped KML) archives
 kmz = ["dep:zip", "dep:flate2"]
+# Drone Remote ID (ASTM F3411) aircraft and operators as CoT
+remoteid = ["dep:remoteid"]
 
 [dependencies]
 cottak-core = { workspace = true }
@@ -24,6 +26,7 @@ thiserror = { workspace = true }
 time = { workspace = true }
 zip = { workspace = true, optional = true }
 flate2 = { workspace = true, optional = true }
+remoteid = { version = "0.3.3", optional = true }
 
 [dev-dependencies]
 proptest = { workspace = true }

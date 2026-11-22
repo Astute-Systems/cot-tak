@@ -8,6 +8,7 @@
 //! | [`catalog`] | Human-readable type descriptions from a `CoTtypes.xml` file you supply |
 //! | [`geometry`] | The shared rules for turning a CoT event into a point, line or polygon |
 //! | [`color`] | ARGB, CSS hex and KML colour conversions |
+//! | `remote_id` | Drone Remote ID aircraft and operators as CoT, with the `remoteid` feature |
 //!
 //! ```
 //! use cottak_convert::geojson::{events_to_collection, GeoJsonOptions};
@@ -29,6 +30,8 @@ pub mod kml;
 mod kml_import;
 #[cfg(feature = "kmz")]
 mod kmz;
+#[cfg(feature = "remoteid")]
+pub mod remote_id;
 pub mod sidc;
 
 pub use error::{Error, Result};
